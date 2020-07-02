@@ -21,7 +21,17 @@ class NewController {
       .then((news) => this.sendResponse(res, http.OK, news))
       .catch((error) => console.error.bind(console, `Error ${error}`));
   }
-  create(req, res) {}
+  create(req, res) {
+    const body = req.body;
+
+    newService
+      .create(body)
+      .then((news) =>
+        this.sendResponse(res, http.OK, "Noticia cadastrada com sucesso")
+      )
+      .catch((error) => console.error.bind(console, `Error ${error}`));
+  }
+
   update(req, res) {}
   delete(req, res) {}
 }
