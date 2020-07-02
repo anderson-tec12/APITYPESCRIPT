@@ -1,4 +1,5 @@
 import newService from "../services/newService";
+import Helper from "../infra/helper";
 import * as http from "http-status";
 
 class NewController {
@@ -9,7 +10,7 @@ class NewController {
   get(req, res) {
     newService
       .get()
-      .then((news) => this.sendResponse(res, http.OK, news))
+      .then((news) => Helper.sendResponse(res, http.OK, news))
       .catch((error) => console.error.bind(console, `Error ${error}`));
   }
 
@@ -18,7 +19,7 @@ class NewController {
 
     newService
       .getById(id)
-      .then((news) => this.sendResponse(res, http.OK, news))
+      .then((news) => Helper.sendResponse(res, http.OK, news))
       .catch((error) => console.error.bind(console, `Error ${error}`));
   }
   create(req, res) {
@@ -27,7 +28,7 @@ class NewController {
     newService
       .create(body)
       .then((news) =>
-        this.sendResponse(res, http.OK, "Noticia cadastrada com sucesso")
+        Helper.sendResponse(res, http.OK, "Noticia cadastrada com sucesso")
       )
       .catch((error) => console.error.bind(console, `Error ${error}`));
   }
@@ -39,7 +40,7 @@ class NewController {
     newService
       .update(id, body)
       .then((news) =>
-        this.sendResponse(
+        Helper.sendResponse(
           res,
           http.OK,
           `${news.title} Noticia atualizada com sucesso`
@@ -54,7 +55,7 @@ class NewController {
     newService
       .delete(id)
       .then(() =>
-        this.sendResponse(res, http.OK, `Noticia deletada com sucesso`)
+        Helper.sendResponse(res, http.OK, `Noticia deletada com sucesso`)
       )
       .catch((error) => console.error.bind(console, `Error ${error}`));
   }
