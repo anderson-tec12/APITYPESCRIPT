@@ -16,3 +16,6 @@ docker run -d -p 5000:3050 abs/api-ts
 
 Verificando se o container está ativo
 docker ps
+
+Cubindo a configuração do docker-compose.yml
+docker-compose up
