@@ -1,12 +1,16 @@
 //configuração de middleware e express
 
 import * as express from "express";
+import db from "./infra/db";
 
 class StartUp {
   public app: express.Application;
+  private _db: db;
 
   constructor() {
     this.app = express();
+    this._db = new db();
+    this._db.createConnection();
     this.routes();
   }
 
