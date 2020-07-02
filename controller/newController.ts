@@ -32,8 +32,32 @@ class NewController {
       .catch((error) => console.error.bind(console, `Error ${error}`));
   }
 
-  update(req, res) {}
-  delete(req, res) {}
+  update(req, res) {
+    const { id } = req.params;
+    const body = req.body;
+
+    newService
+      .update(id, body)
+      .then((news) =>
+        this.sendResponse(
+          res,
+          http.OK,
+          `${news.title} Noticia atualizada com sucesso`
+        )
+      )
+      .catch((error) => console.error.bind(console, `Error ${error}`));
+  }
+
+  delete(req, res) {
+    const { id } = req.params;
+
+    newService
+      .delete(id)
+      .then(() =>
+        this.sendResponse(res, http.OK, `Noticia deletada com sucesso`)
+      )
+      .catch((error) => console.error.bind(console, `Error ${error}`));
+  }
 }
 
 export default new NewController();
