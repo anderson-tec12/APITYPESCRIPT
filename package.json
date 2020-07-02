@@ -15,6 +15,7 @@
   },
   "scripts": {
     "compile": "tsc -w",
-    "start": "node ./dist/program.js"
+    "dev": "node ./dist/program.js",
+    "start": "node program.js"
   }
 }
