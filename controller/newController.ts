@@ -13,7 +13,14 @@ class NewController {
       .catch((error) => console.error.bind(console, `Error ${error}`));
   }
 
-  getById(req, res) {}
+  getById(req, res) {
+    const { id } = req.params;
+
+    newService
+      .getById(id)
+      .then((news) => this.sendResponse(res, http.OK, news))
+      .catch((error) => console.error.bind(console, `Error ${error}`));
+  }
   create(req, res) {}
   update(req, res) {}
   delete(req, res) {}
