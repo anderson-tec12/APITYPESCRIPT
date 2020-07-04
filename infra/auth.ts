@@ -17,10 +17,12 @@ class auth {
         }
       });
     } else {
-      req.status(401).send({
+      res.status(401).send({
         success: false,
         message: "401 sem autorização",
       });
     }
   }
 }
+
+export default new auth();

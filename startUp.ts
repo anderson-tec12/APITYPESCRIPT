@@ -5,6 +5,7 @@ import * as bodyParser from "body-parser";
 import * as cors from "cors";
 
 import db from "./infra/db";
+import Auth from "./infra/auth";
 import newController from "./controller/newController";
 
 class StartUp {
@@ -40,6 +41,7 @@ class StartUp {
       res.send({ versao: "0.0.1" });
     });
 
+    this.app.use(Auth.validate);
     //rotas
     this.app.route("/api/v1/news").get(newController.get);
     this.app.route("/api/v1/news/:id").get(newController.getById);
