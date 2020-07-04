@@ -2,7 +2,7 @@
 
 Projeto para pratica com typescrits e alguns conceitos
 
-# Ambiente dockerrizado
+# Ambiente dockerizado
 
 rode o comado para gerar a imagem
 docker build -t abs/api-ts .
