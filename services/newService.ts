@@ -1,24 +1,24 @@
 import newRepository from "../repository/newRepository";
 
 class NewService {
-  get() {
-    return newRepository.find({});
+  async get() {
+    return await newRepository.find({});
   }
 
-  getById(_id) {
-    return newRepository.findById(_id);
+  async getById(_id) {
+    return await newRepository.findById(_id);
   }
 
-  create(news) {
-    return newRepository.create(news);
+  async create(news) {
+    return await newRepository.create(news);
   }
 
-  update(_id, news) {
-    return newRepository.findByIdAndUpdate(_id, news);
+  async update(_id, news) {
+    return await newRepository.findByIdAndUpdate(_id, news);
   }
 
-  delete(_id) {
-    return newRepository.findByIdAndRemove(_id);
+  async delete(_id) {
+    return await newRepository.findByIdAndRemove(_id);
   }
 }
 

@@ -22,6 +22,7 @@ class NewController {
       .then((news) => Helper.sendResponse(res, http.OK, news))
       .catch((error) => console.error.bind(console, `Error ${error}`));
   }
+
   create(req, res) {
     const body = req.body;
 
