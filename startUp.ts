@@ -6,6 +6,7 @@ import * as cors from "cors";
 
 import db from "./infra/db";
 import Auth from "./infra/auth";
+import Uploads from "./infra/uploads";
 import newController from "./controller/newController";
 
 class StartUp {
@@ -38,6 +39,14 @@ class StartUp {
 
   routes() {
     this.app.route("/").get((req, res) => {
+      try {
+        res.send("Arquivo enviado com sucesso");
+      } catch (err) {
+        console.log(err);
+      }
+    });
+
+    this.app.route("/uploads").post(Uploads.single("file"), (req, res) => {
       res.send({ versao: "0.0.1" });
     });
 
